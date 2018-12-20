@@ -96,7 +96,7 @@ The identifier that the shop has given this product.
 
 The validation dataset (y_true.csv) is provided as well, that way multiple approaches can be tested.
 
-This will be done using an F1 score implemented as the following:
+This will be done using an F1 score implemented as the following (this is not the full evaluation code, just a definition of the F1):
 
 ```py
 len_validation = len(validation_set)
