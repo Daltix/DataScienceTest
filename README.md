@@ -7,7 +7,11 @@ Make the matches!
 Your objective is to find product matches in a dataset of DIY products using data scraped from webshops by the Daltix team.
 What you are given are a set of ~100K json objects (stored in .jsonl format) that can be found in `data/dataset.jsonl.gz`.
 
-What you are required to provide is a single csv that looks like the following:
+What you are required to provide is a github repository including the following
+
+## Deliverable 1. Predictions
+
+The predictions will be a single csv (`submission.csv`) that looks like the following:
 
 ```
 daltix_id_1,daltix_id_2
@@ -17,6 +21,16 @@ aaff0aa6db24814ad25d5cb410ded08361ab32bcb953e1f81fd4f77affe7fe35,480e353eb638dbe
 Where each entry means that they are a match.
 
 Note that when we say "match" we mean EXACT MATCH. It must be, without a doubt, **the same product**!
+
+
+## Deliverable 2. Code
+
+We will need in the repository the required code to generate the submission file. This code can be either .py files or jupyter notebooks (preferred).
+
+Instructions on how to generate the submission are required, ideally in the repository README file.
+
+Extra points for additional information including analysis, interesting findings or data visualizations.
+
 
 ## The Dataset
 
@@ -78,9 +92,11 @@ A non-standardized key-value pair of arbitrary but specific attributes of the pr
 
 The identifier that the shop has given this product.
 
-## Implementation performance evaluation
+## Evaluation dataset
 
-This will be done using an f1 score implemented as the following:
+The validation dataset (y_true.csv) is provided as well, that way multiple approaches can be tested.
+
+This will be done using an F1 score implemented as the following:
 
 ```py
 len_validation = len(validation_set)
@@ -91,6 +107,5 @@ recall = tp/len_validation
 precision = tp/len_submission
 fpr = fp/len_submission
 
-# This f1 score is what will appear on the leaderboard
 f1 = 2/((1/recall) + (1/precision))
 ```
